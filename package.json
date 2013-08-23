@@ -1,0 +1,26 @@
+{
+      "name":           "ee-ttl-queue"
+    , "description":    "Queue with timeout function"
+    , "version":        "0.1.0"
+    , "homepage":       "https://github.com/eventEmitter/ee-ttl-queue"
+    , "author":         "Michael van der Weg <michael@eventemitter.com> (http://eventemitter.com/)"
+    , "licence":        "MIT"
+    , "repository": {
+        "url":          "https://github.com/eventEmitter/ee-ttl-queue"
+    }
+    , "engines": {
+        "node":         "*"
+    }
+    , "bugs": {
+        "url":          "https://github.com/eventEmitter/ee-ttl-queue/issues"
+    }
+    , "dependencies": {
+          "ee-class":           "*"
+        , "ee-error":           "*"
+        , "ee-log":             "*"
+        , "ee-event-emitter":   "*"
+        , "ee-types":           "*"
+    }
+    , "devDependencies": {}
+    , "optionalDependencies": {}
+}
