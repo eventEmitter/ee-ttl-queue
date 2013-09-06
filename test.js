@@ -14,7 +14,7 @@
 		, max: 9 
 		, on: {
 			timeout: function( item ){ log( item ); }
-			, error: function( item ){ log( item ); }
+			, error: function( err, item ){ log( err, item ); }
 		}
 	} );
 
