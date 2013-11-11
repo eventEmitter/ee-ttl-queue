@@ -1,26 +1,31 @@
 {
-      "name":           "ee-ttl-queue"
-    , "description":    "Queue with timeout function"
-    , "version":        "0.1.1"
-    , "homepage":       "https://github.com/eventEmitter/ee-ttl-queue"
-    , "author":         "Michael van der Weg <michael@eventemitter.com> (http://eventemitter.com/)"
-    , "licence":        "MIT"
+      "name"                        : "ee-ttl-queue"
+    , "description"                 : "Queue with timeout"
+    , "version"                     : "0.1.2"
+    , "homepage"                    : "https://github.com/eventEmitter/ee-ttl-queue"
+    , "author"                      : "Michael van der Weg <michael@eventemitter.com> (http://eventemitter.com/)" 
+    , "licence"                     : "mit"
     , "repository": {
-        "url":          "https://github.com/eventEmitter/ee-ttl-queue"
+          "url"                     : "https://github.com/eventEmitter/ee-ttl-queue.git"
+        , "type"                    : "git"
     }
     , "engines": {
-        "node":         "*"
+        "node"                      : ">=v0.10.17"
     }
     , "bugs": {
-        "url":          "https://github.com/eventEmitter/ee-ttl-queue/issues"
+        "url"                       : "https://github.com/eventEmitter/ee-ttl-queue/issues"
     }
     , "dependencies": {
-          "ee-class":           "*"
-        , "ee-error":           "*"
-        , "ee-log":             "*"
-        , "ee-event-emitter":   "*"
-        , "ee-types":           "*"
+          "ee-class"                : "*"
+        , "ee-error"                : "*"
+        , "ee-log"                  : "*"
+        , "ee-event-emitter"        : "*"
+        , "ee-types"                : "*"
     }
     , "devDependencies": {}
     , "optionalDependencies": {}
+    , "scripts": {
+        "test"                      : "node test.js"
+    }
+    , "keywords"                    : [ "queue", "ttl", "timeout" ]
 }
