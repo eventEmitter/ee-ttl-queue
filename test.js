@@ -15,14 +15,14 @@
 	var q = new Queue( { 
 		  ttl: 1000
 		, max: 9 
-		, on: {
-			timeout: function( item ){ timeouts++; }
-			, error: function( err, item ){ 
-				assert.ok( err instanceof Error, "Error event did not deliver an error object" );
-				hadError = true;
-			}
-		}
-	} );
+	});
+
+
+	q.on('timeout', function( item ){ timeouts++; });
+	q.on('error', function( err, item ){ 
+		assert.ok( err instanceof Error, "Error event did not deliver an error object" );
+		hadError = true;
+	});
 
 
 	var i = 10;
