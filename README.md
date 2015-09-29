@@ -40,6 +40,13 @@ the queue is full or the memory is full.
 	}
 
 
+#### Getting Items
+
+When getting an item from the queue it is removed from it
+
+	var item = q.get();
+
+
 
 #### Removing Items
 
@@ -77,3 +84,10 @@ This event is emitted if an item times out because of the ttl value set
 	q.on('timeout', (item) => {
 
 	});
+
+
+#### Length property
+
+This property indicates how many items are queued
+
+	var l = q.length;
