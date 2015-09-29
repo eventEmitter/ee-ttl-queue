@@ -1,48 +1,79 @@
 # ee-ttl-queue
 
-Queue with timeout function
+A queue wich holds items not longer than a specified amount of time. It Wwll never fill your memmory thanks to the [ttl-queue](https://www.npmjs.com/package/ttl-queue).
 
-## installation
-
-	npm install ee-ttl-queue
-
-
-## build status
-
-[![Build Status](https://travis-ci.org/eventEmitter/ee-ttl-queue.png?branch=master)](https://travis-ci.org/eventEmitter/ee-ttl-queue)
-
-## usage
-
-	var Queue = require( "ee-ttl-queue" )
-		. log = require( "ee-log" );
+[![npm](https://img.shields.io/npm/dm/ttl-queue.svg?style=flat-square)](https://www.npmjs.com/package/ttl-queue)
+[![Travis](https://img.shields.io/travis/eventEmitter/ttl-queue.svg?style=flat-square)](https://travis-ci.org/eventEmitter/ttl-queue)
+[![node](https://img.shields.io/node/v/ttl-queue.svg?style=flat-square)](https://nodejs.org/)
 
 
-	// create a queue wich cannot hold more than 9 items at the time
-	// the items added to the queue will timeout if they are not 
-	// retreived via the .get() api.
-	// the timeout event will emit the items which are timed out.
-	// the error event will be invoked if the queue is overflowing, 
-	// which is in this case when the 10th item is added.
+## API
 
-	var q = new Queue( { 
-		  ttl: 1000
-		, max: 9 
-		, on: {
-			timeout: function( item ){ log( item ); }
-			, error: function( err, item ){ log( err ); }
-		}
-	} );
+You may specify a maximum of items items that may be stored aas well as a ttl value.
+
+	var TTLQueue = require('ttl-queue');
+
+	let q = new TTLQueue();
+
+or 
+
+	let q = new TTLQueue({
+		  ttl: 3000 // 3 seconds, defaults to unlimited
+		, max: 1000 // max 1'000 items in the queue, defaults to unlimited
+	});
 
 
-	// you may queue any type of variable, return true when the item was queued
-	var itemWasAdded = q.queue( whatever );
 
-	// alternative syntax
-	var itemWasAdded = q.add( whatever );
 
-	// you may remove items again
-	q.remove( whatever );
+#### Adding Items
 
-	// retreive the oldest item
-	var item = q.get();
+When adding items you will get an unique id returned that later can bve used to remove 
+items again. If the method returns the value false the item could not be added because 
+the queue is full or the memory is full.
 
+
+	let itemId = q.push(myItem);
+
+
+	if (itemId === false) {
+		// the item could not be queued
+	}
+
+
+
+#### Removing Items
+
+
+You may remove items using the id returned by the push method
+
+	let itemId = q.push(myItem);
+	let item = q.remove(itemId);
+
+
+
+#### Drain Event
+
+The drain event is emitted as soon there is no item left in the queue
+
+	q.on('drain', () => {
+
+	});
+
+
+#### Overflow Event
+
+This event is emitted if an item could not be added because the queue or the memory is full
+
+	q.on('overflow', (item, error) => {
+
+	});
+
+
+#### Timeout event
+
+This event is emitted if an item times out because of the ttl value set
+
+
+	q.on('timeout', (item) => {
+
+	});

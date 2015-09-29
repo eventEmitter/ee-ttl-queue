@@ -1,6 +1,5 @@
-
-	
-	require( "ee-error" );
+(function() {
 
 
-	module.exports = require( "./lib/Queue" );
+    module.exports = require('./lib/TTLQueue');
+})();
