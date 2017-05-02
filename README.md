@@ -1,5 +1,7 @@
 # ee-ttl-queue
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/eventEmitter/ttl-queue.svg)](https://greenkeeper.io/)
+
 A queue wich holds items not longer than a specified amount of time. It Wwll never fill your memmory thanks to the [ttl-queue](https://www.npmjs.com/package/ttl-queue).
 
 [![npm](https://img.shields.io/npm/dm/ttl-queue.svg?style=flat-square)](https://www.npmjs.com/package/ttl-queue)
