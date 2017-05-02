@@ -17,10 +17,10 @@
     }
     , "dependencies": {
           "ee-class"                : "1.x"
-        , "ee-types"                : "1.x"
-        , "ee-log"                  : "0.3.x"
-        , "ee-event-emitter"        : "0.3.x"
-        , "linkd"                   : "0.3.x"
+        , "ee-types"                : "^2.1.2"
+        , "ee-log"                  : "~2.0.2"
+        , "ee-event-emitter"        : "~1.0.1"
+        , "linkd"                   : "~3.0.0"
         , "memory-manager"          : "0.1.x"
     }
     , "devDependencies": {
